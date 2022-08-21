@@ -45,7 +45,7 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
               child: Container(
                 height: 200,
                 decoration: BoxDecoration(
-                  color: Colors.orange,
+                  color: getBottomNavColor(_selectedIndex),
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(25), topRight: Radius.circular(25))
                 ),
               ),
