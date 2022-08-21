@@ -66,9 +66,9 @@ class _HomePageState extends State<HomePage> {
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 physics: BouncingScrollPhysics(),
-                itemCount: _itemLength + 2,
+                itemCount: _listOfTopDestination.length + 2,
                 itemBuilder: (context, index){
-                  final item = _listOfTopDestination[index];
+                  final item = _listOfTopDestination[0];
                   if(index == 0){
                     return SizedBox(width: 0,);
                   }
