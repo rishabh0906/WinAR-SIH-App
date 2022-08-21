@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, constant_identifier_names, prefer_const_literals_to_create_immutables
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:teleport_ar/Models/Destination.dart';
 import 'package:teleport_ar/Destinationpage.dart';
 import 'package:teleport_ar/Models/home_page_top_destination_model.dart';
@@ -96,7 +97,8 @@ class _HomePageState extends State<HomePage> {
                       ),
                       alignment: Alignment.bottomLeft,
                       padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-                      child: Text("${item.destinationName}", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),),
+                      // child: Text("${item.destinationName}", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),),
+                      child: SvgPicture.asset("${item.imagePath}")
                     ),
                   );
 
