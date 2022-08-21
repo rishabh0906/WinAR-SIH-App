@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:teleport_ar/constants/colors.dart';
 import 'package:teleport_ar/profile.dart';
 import 'homepage.dart';
 import 'locationpage.dart';
@@ -44,7 +45,7 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
               child: Container(
                 height: 200,
                 decoration: BoxDecoration(
-                  color: Colors.orange,
+                  color: getBottomNavColor(_selectedIndex),
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(25), topRight: Radius.circular(25))
                 ),
               ),
@@ -62,6 +63,7 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
                 ]
               )
             ),
+
             Align(
               alignment: Alignment.bottomCenter,
               child: SnakeNavigationBar.color(
@@ -74,9 +76,9 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
                 ///configuration for SnakeNavigationBar.color
                 snakeViewColor: Colors.white,
                 selectedItemColor:  Color.fromRGBO(32, 14, 50, 1),
-                unselectedItemColor: Colors.grey,
+                unselectedItemColor: Colors.grey.withOpacity(0.5),
 
-                backgroundColor: Color.fromRGBO(249, 140, 7, 1),
+                backgroundColor: getBottomNavColor(_selectedIndex),
 
                 currentIndex: _selectedIndex,
                 onTap: (index) => setState(() {
@@ -93,75 +95,26 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
             )
           ],
         ),
-        // bottomNavigationBar: SnakeNavigationBar.color(
-        //   behaviour: SnakeBarBehaviour.floating,
-        //   snakeShape: SnakeShape.circle,
-        //   elevation: 10,
-        //   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
-        //   padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-        //
-        //   ///configuration for SnakeNavigationBar.color
-        //   snakeViewColor: Colors.white,
-        //   selectedItemColor:  Color.fromRGBO(32, 14, 50, 1),
-        //   unselectedItemColor: Colors.grey,
-        //
-        //   backgroundColor: Color.fromRGBO(249, 140, 7, 1),
-        //
-        //   currentIndex: _selectedIndex,
-        //   onTap: (index) => setState(() {
-        //     _selectedIndex = index;
-        //     tabController!.animateTo(index);
-        //   }),
-        //   items: const [
-        //     BottomNavigationBarItem(icon: Icon(CupertinoIcons.add_circled_solid), label: 'tickets'),
-        //     BottomNavigationBarItem(icon: Icon(CupertinoIcons.airplane), label: 'calendar'),
-        //     BottomNavigationBarItem(icon: Icon(CupertinoIcons.location_solid), label: 'home'),
-        //     BottomNavigationBarItem(icon: Icon(CupertinoIcons.person_alt), label: 'microphone')
-        //   ],
-        // ),
-        // bottomNavigationBar: Container(
-        //   decoration: BoxDecoration(
-        //       color: Colors.blue.shade100,
-        //       borderRadius: BorderRadius.only(
-        //         topLeft: const Radius.circular(10),
-        //         topRight: const Radius.circular(10),
-        //       )),
-        //   child: Padding(
-        //     padding: const EdgeInsets.symmetric(horizontal: 13.0, vertical: 10),
-        //     child: GNav(
-        //       backgroundColor: Colors.blue.shade100,
-        //       color: Colors.grey.shade600,
-        //       activeColor: Colors.blue.shade900,
-        //       tabBackgroundColor: Colors.blue.shade200,
-        //       padding: EdgeInsets.all(16),
-        //       gap: 8,
-        //       selectedIndex: _selectedIndex,
-        //       onTabChange: (index) {
-        //         setState(() {
-        //           _selectedIndex = index;
-        //         });
-        //       },
-        //       tabs: const [
-        //         GButton(
-        //           icon: Icons.home,
-        //           text: "Home",
-        //         ),
-        //         GButton(
-        //           icon: map_pin_ellipse,
-        //           text: "Location",
-        //         ),
-        //         GButton(
-        //           icon: Icons.hotel,
-        //           text: "Hotels & Food",
-        //         ),
-        //         GButton(
-        //           icon: Icons.person,
-        //           text: "Profile",
-        //         ),
-        //       ],
-        //     ),
-        //   ),
-        // )
     );
+  }
+
+  Color getBottomNavColor(int index){
+    switch(index){
+      case 0: {
+        return kOrangeColor;
+      }
+      case 1: {
+        return kWhiteColor;
+      }
+      case 2: {
+        return kBlueColor;
+      }
+      case 3: {
+        return kGreenColor;
+      }
+      default: {
+        return kOrangeColor;
+      }
+    }
   }
 }
