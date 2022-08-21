@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:teleport_ar/Models/Destination.dart';
 import 'package:teleport_ar/Destinationpage.dart';
+import 'package:teleport_ar/Models/home_page_top_destination_model.dart';
+import 'package:teleport_ar/constants/colors.dart';
 
 
 // import 'package:google_nav_bar/google_nav_bar.dart';
@@ -21,6 +23,38 @@ class _HomePageState extends State<HomePage> {
 
   final int _itemLength = 10;
   int _index = 0;
+  late int _selectedTopDestinationId;
+
+   final List<HomePageTopDestinationModel> _listOfTopDestination = [
+    HomePageTopDestinationModel(
+      id: 1,
+      destinationName: "Nagpur",
+      imagePath: "assets/KochiPic.svg"
+    ),
+     HomePageTopDestinationModel(
+         id: 2,
+         destinationName: "Jaipur",
+         imagePath: "assets/JaipurPic.svg"
+     ),
+     HomePageTopDestinationModel(
+         id: 3,
+         destinationName: "Varanasi",
+         imagePath: "assets/VaranasiPic.svg"
+     ),
+     HomePageTopDestinationModel(
+         id: 4,
+         destinationName: "West Bengal",
+         imagePath: "assets/VaranasiPic.svg"
+     )
+     
+  ];
+
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedTopDestinationId = _listOfTopDestination.first.id!;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,8 +72,9 @@ class _HomePageState extends State<HomePage> {
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 physics: BouncingScrollPhysics(),
-                itemCount: _itemLength + 2,
+                itemCount: _listOfTopDestination.length + 2,
                 itemBuilder: (context, index){
+                  final item = _listOfTopDestination[0];
                   if(index == 0){
                     return SizedBox(width: 0,);
                   }
@@ -51,7 +86,7 @@ class _HomePageState extends State<HomePage> {
 
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
-                        border: Border.all(color: Colors.orange)
+                        border: item.id == _selectedTopDestinationId ? Border.all(color: kOrangeColor) : null
                     ),
                     child: Container(
                       width: 80,
@@ -61,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       alignment: Alignment.bottomLeft,
                       padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-                      child: Text("Kochi", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),),
+                      child: Text("${item.destinationName}", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),),
                     ),
                   );
 
