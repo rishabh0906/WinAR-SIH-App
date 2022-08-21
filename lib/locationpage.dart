@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:teleport_ar/constants/colors.dart';
 
 
 const IconData map_pin_ellipse = IconData(0xf706,
@@ -15,15 +16,47 @@ class LocationPage extends StatefulWidget {
 }
 
 class _LocationPageState extends State<LocationPage> {
-  // final List<Widget> _pages = [Center()]; 
+  // final List<Widget> _pages = [Center()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-          child: Text("Location"),
-        ),
-        
+      backgroundColor: Colors.transparent,
+      body: Stack(
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height,
+            child: Image.network(
+                "https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+              fit: BoxFit.cover,
+            ),
+          ),
+
+          Container(
+            height: 200,
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: CupertinoButton(
+                color: Colors.white.withOpacity(0.8),
+                  child: Text("Let's Get Started", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),), onPressed: (){}),
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              height: 200,
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                  color: kWhiteColor,
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(25), topRight: Radius.circular(25))
+              ),
+              child: Container(
+                  margin: EdgeInsets.only(top: 40),
+                  child: Text("Your Travel has just begun", textAlign: TextAlign.center , style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),)),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
