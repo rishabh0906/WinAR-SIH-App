@@ -1,7 +1,10 @@
 // ignore_for_file: prefer_const_constructors, constant_identifier_names
 
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:teleport_ar/constants/colors.dart';
 
 
@@ -17,6 +20,8 @@ class LocationPage extends StatefulWidget {
 
 class _LocationPageState extends State<LocationPage> {
   // final List<Widget> _pages = [Center()];
+  static const platform = MethodChannel('samples.flutter.dev/ar');
+
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +43,10 @@ class _LocationPageState extends State<LocationPage> {
               alignment: Alignment.bottomCenter,
               child: CupertinoButton(
                 color: Colors.white.withOpacity(0.8),
-                  child: Text("Let's Get Started", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),), onPressed: (){}),
+                  child: Text("Let's Get Started", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),),
+                  onPressed: (){
+                    openArPortal();
+                  }),
             ),
           ),
           Align(
@@ -58,5 +66,13 @@ class _LocationPageState extends State<LocationPage> {
         ],
       ),
     );
+  }
+
+  void openArPortal() async{
+    try {
+      final int result = await platform.invokeMethod('openArPortal');
+    } on PlatformException catch (e) {
+      log("Platform error while opening AR portal");
+    }
   }
 }
