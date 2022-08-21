@@ -28,19 +28,25 @@ class _HomePageState extends State<HomePage> {
    final List<HomePageTopDestinationModel> _listOfTopDestination = [
     HomePageTopDestinationModel(
       id: 1,
-      destinationName: "Kochi",
-      imagePath: "assets/pathName"
+      destinationName: "Nagpur",
+      imagePath: "assets/KochiPic.svg"
     ),
      HomePageTopDestinationModel(
          id: 2,
-         destinationName: "Kochi",
-         imagePath: "assets/pathName"
+         destinationName: "Jaipur",
+         imagePath: "assets/JaipurPic.svg"
      ),
      HomePageTopDestinationModel(
-         id: 1,
-         destinationName: "Kochi",
-         imagePath: "assets/pathName"
+         id: 3,
+         destinationName: "Varanasi",
+         imagePath: "assets/VaranasiPic.svg"
+     ),
+     HomePageTopDestinationModel(
+         id: 4,
+         destinationName: "West Bengal",
+         imagePath: "assets/VaranasiPic.svg"
      )
+     
   ];
 
 
