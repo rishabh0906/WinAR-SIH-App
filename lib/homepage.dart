@@ -30,22 +30,22 @@ class _HomePageState extends State<HomePage> {
     HomePageTopDestinationModel(
       id: 1,
       destinationName: "Nagpur",
-      imagePath: "assets/KochiPic.svg"
+      imagePath: "assets/nagpurPic.png"
     ),
      HomePageTopDestinationModel(
          id: 2,
          destinationName: "Jaipur",
-         imagePath: "assets/JaipurPic.svg"
+         imagePath: "assets/jaipurPic.png"
      ),
      HomePageTopDestinationModel(
          id: 3,
          destinationName: "Varanasi",
-         imagePath: "assets/VaranasiPic.svg"
+         imagePath: "assets/varanasiPic.png"
      ),
      HomePageTopDestinationModel(
          id: 4,
          destinationName: "West Bengal",
-         imagePath: "assets/VaranasiPic.svg"
+         imagePath: "assets/westbengalPic.png"
      )
      
   ];
