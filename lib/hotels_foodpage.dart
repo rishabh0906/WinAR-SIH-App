@@ -3,6 +3,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:teleport_ar/Models/apartment.dart';
 import 'package:teleport_ar/Models/user.dart';
+import 'package:teleport_ar/constants/colors.dart';
 import 'package:teleport_ar/hotelDetails.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -27,6 +28,54 @@ class _HotelsPageState extends State<HotelsPage> {
             margin: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               children: [
+                Column(
+                  children: [
+
+                    SizedBox(height: 12,),
+                    Container(
+                      height: 50,
+                      child: ListView.separated(
+                        clipBehavior: Clip.none,
+                        scrollDirection: Axis.horizontal,
+                          itemCount: 10,
+                          itemBuilder: (ctx, index) {
+                          return PhysicalModel(
+                              borderRadius: BorderRadius.circular(12),
+                            color: Colors.black,
+                            elevation: index == 0 ? 0 : 6,
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                              decoration: BoxDecoration(
+                                color: index == 0 ? kBlueColor : kWhiteColor,
+                                borderRadius: BorderRadius.circular(12)
+                              ),
+                              child:  Center( child:  Text("Travel", style: TextStyle(color: index == 0 ? Colors.white : Colors.black , fontWeight: FontWeight.bold),)),
+                            ),
+                          );
+                          },
+                        separatorBuilder: (BuildContext context, int index) {
+                          return const SizedBox(width: 12,);
+                        },),
+                    ),
+
+                    SizedBox(height: 12,),
+                    Container(
+                      decoration: BoxDecoration(
+                          color: Colors.orange.shade50,
+                          borderRadius: BorderRadius.circular(16)
+                      ),
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      child: TextField(
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: "Search Monument or place ...",
+                            hintStyle: TextStyle(color: Colors.orange),
+                            prefixIcon: Icon(Icons.search, color: Colors.orange,)
+                        ),
+                      ),
+                    )
+                  ],
+                ),
                 StaggeredGrid.count(
                   crossAxisCount: 2,
                   mainAxisSpacing: 12,
