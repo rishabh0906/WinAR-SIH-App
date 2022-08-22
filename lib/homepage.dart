@@ -100,7 +100,7 @@ class _HomePageState extends State<HomePage> {
                         width: 80,
                         decoration: BoxDecoration(
                             color: Colors.red,
-                            borderRadius: BorderRadius.circular(16),
+                            borderRadius: BorderRadius.circular(10),
                           image: DecorationImage(
                             image: AssetImage("${item.imagePath}"),
                             fit: BoxFit.cover
