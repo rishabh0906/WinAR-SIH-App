@@ -2,6 +2,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:teleport_ar/constants/colors.dart';
+
 // import 'package:flutter/line_icons.dart';
 
 // import 'package:google_nav_bar/google_nav_bar.dart';
@@ -16,161 +18,190 @@ class ProfilePage extends StatefulWidget {
   State<ProfilePage> createState() => _ProfilePageState();
 }
 
+
+
 class _ProfilePageState extends State<ProfilePage> {
-  // final List<Widget> _pages = [Center()];  
+  Widget textfield({@required hintText, @required myIcon}) {
+    return Material(
+      elevation: 4,
+      shadowColor: Colors.grey,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: TextField(
+        decoration: InputDecoration(
+            hintText: hintText,
+            icon: myIcon,
+            iconColor: Colors.black,
+            hintStyle: TextStyle(
+              letterSpacing: 2,
+              color: Colors.black54,
+              fontWeight: FontWeight.bold,
+            ),
+            fillColor: Colors.white30,
+            filled: true,
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10.0),
+                borderSide: BorderSide.none)),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
+      body: Stack(
+        alignment: Alignment.center,
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
 
-        backgroundColor: Colors.grey.shade300,
-        body: SingleChildScrollView(
-          child: Stack(
-            children: <Widget>[
-              SizedBox(
-                height: 250,
-                width: double.infinity,
-                child: Image(
-                  image: AssetImage(
-                    "wave.jpg",
-                  ),
-                  fit: BoxFit.cover,
-                ),
-              ),
+              
+
+
               Container(
-                margin: EdgeInsets.fromLTRB(15, 200, 15, 15),
+                height: 450,
+                width: double.infinity,
+                margin: EdgeInsets.symmetric(horizontal: 10),
                 child: Column(
-                  children: <Widget>[
-                    Stack(
-                      children: <Widget>[
-                        Container(
-                          padding: EdgeInsets.all(15),
-                          margin: EdgeInsets.only(top: 15),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Container(
-                                margin: EdgeInsets.only(left: 95),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Text(
-                                      "General",
-                                      style: Theme.of(context).textTheme.headline6,
-                                    ),
-                                    ListTile(
-                                      contentPadding: EdgeInsets.all(0),
-                                      title: Text("Trips"),
-                                      //You can add Subtitle here
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  Expanded(
-                                    child: Column(
-                                      children: <Widget>[
-                                        Text("40"),
-                                        Text("Remote Views"),
-                                      ],
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Column(
-                                      children: <Widget>[
-                                        Text("8"),
-                                        Text("Monument Views"),
-                                      ],
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: Column(
-                                      children: <Widget>[
-                                        Text("2"),
-                                        Text("Tours Guides"),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
-                        Container(
-                          width: 80,
-                          height: 80,
-                          margin: EdgeInsets.only(left: 15),
-                          decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                offset: Offset(0, 0),
-                                blurRadius: 10,
-                                color: Colors.black.withOpacity(0.15),
-                              ),
-                            ],
-                            borderRadius: BorderRadius.circular(10),
-                            image: DecorationImage(
-                              image: AssetImage(
-                                "profile.jpg",
-                              ),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                      ],
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    textfield(
+                      hintText: 'Settings',
+                      myIcon: Icon(CupertinoIcons.settings_solid)
                     ),
-                    SizedBox(
-                      height: 20,
+                    textfield(
+                      hintText: 'Visited Places',
+                      myIcon: Icon(CupertinoIcons.location)
+
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      child: Column(
-                        children: <Widget>[
-                          ListTile(
-                            title: Text("General Information"),
-                          ),
-                          Divider(),
-                          ListTile(
-                            title: Text("Email"),
-                            subtitle: Text("MosallasDev@gmail.com"),
-                            leading: Icon(Icons.email),
-                          ),
-                          
-                          ListTile(
-                            title: Text("About"),
-                            subtitle: Text(
-                                "We hope you find this app useful.\teleportAR, is a team of people who can do your projects well.\nAnd they will teach you their skills in this channel."),
-                            leading: Icon(Icons.format_align_center),
-                          ),
-                          ListTile(
-                            title: Text("Joined Date"),
-                            subtitle: Text("25 September 2020"),
-                            leading: Icon(Icons.calendar_view_day),
-                          ),
-                        ],
-                      ),
+                    textfield(
+                      hintText: 'Bookings',
+                      myIcon: Icon(CupertinoIcons.bookmark_solid)
+
                     ),
+                    textfield(
+                      hintText: 'Information',
+                      myIcon: Icon(CupertinoIcons.info_circle)
+
+                    ),
+                    textfield(
+                      hintText: 'Contact Us',
+                      myIcon: Icon(CupertinoIcons.chat_bubble_2_fill)
+
+                    ),
+
+
+                    // Container(
+                    //   height: 55,
+                    //   width: double.infinity,
+                    //   child: RaisedButton(
+                    //     onPressed: () {},
+                    //     color: Colors.black54,
+                    //     child: Center(
+                    //       child: Text(
+                    //         "Update",
+                    //         style: TextStyle(
+                    //           fontSize: 23,
+                    //           color: Colors.white,
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // )
                   ],
                 ),
               )
             ],
           ),
-        ),
+          CustomPaint(
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+            ),
+            // painter: HeaderCurvedContainer(),
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Padding(
+                padding: EdgeInsets.all(20),
+                child: Text(
+                  "Palak Malhotra",
+                  style: TextStyle(
+                    fontSize: 35,
+                    letterSpacing: 1.5,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.all(10.0),
+                width: MediaQuery.of(context).size.width / 3,
+                height: MediaQuery.of(context).size.width / 3,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.white, width: 5),
+                  shape: BoxShape.circle,
+                  color: Colors.white,
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage('profile.jpg'),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          // Padding(
+            // padding: EdgeInsets.only(bottom: 270, left: 184),
+            // child: CircleAvatar(
+            //   backgroundColor: Colors.black54,
+            //   child: IconButton(
+            //     icon: Icon(
+            //       Icons.edit,
+            //       color: Colors.white,
+            //     ),
+            //     onPressed: () {},
+            //   ),
+            // ),
+          // ),
+
+          // Align(
+          //   alignment: Alignment.bottomCenter,
+            
+          //   child: Container(
+          //     height: 200,
+          //     width: MediaQuery.of(context).size.width,
+          //     decoration: BoxDecoration(
+          //         color: kGreenColor,
+          //         borderRadius: BorderRadius.only(topLeft: Radius.circular(25), topRight: Radius.circular(25))
+          //     ),
+          //     child: Container(
+          //         margin: EdgeInsets.only(top: 30, left: 40, right: 40),
+          //         child: Column(
+                    
+          //         )),
+          //   ),
+          // ),
+        ],
       ),
     );
   }
 }
 
+// class HeaderCurvedContainer extends CustomPainter {
+//   @override
+//   void paint(Canvas canvas, Size size) {
+//     // Paint paint = Paint()..color = Color(0xff555555);
+//     Path path = Path()
+//       ..relativeLineTo(0, 150)
+//       ..quadraticBezierTo(size.width / 2, 225, size.width, 150)
+//       ..relativeLineTo(0, -150)
+//       ..close();
+//     // canvas.drawPath(path, paint);
+//   }
+
+//   @override
+//   bool shouldRepaint(CustomPainter oldDelegate) => false;
+// }
