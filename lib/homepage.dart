@@ -1,11 +1,16 @@
 // ignore_for_file: prefer_const_constructors, constant_identifier_names, prefer_const_literals_to_create_immutables
+import 'dart:developer';
+
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
 import 'package:teleport_ar/Models/Destination.dart';
 import 'package:teleport_ar/Destinationpage.dart';
+import 'package:teleport_ar/Models/destination_details_model.dart';
 import 'package:teleport_ar/Models/home_page_top_destination_model.dart';
 import 'package:teleport_ar/constants/colors.dart';
+import 'package:teleport_ar/constants/list_files.dart';
 
 
 // import 'package:google_nav_bar/google_nav_bar.dart';
@@ -22,39 +27,20 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-  final int _itemLength = 10;
-  int _index = 0;
+  int _index = 1;
   late int _selectedTopDestinationId;
-
-   final List<HomePageTopDestinationModel> _listOfTopDestination = [
-    HomePageTopDestinationModel(
-      id: 1,
-      destinationName: "Nagpur",
-      imagePath: "assets/nagpurPic.png"
-    ),
-     HomePageTopDestinationModel(
-         id: 2,
-         destinationName: "Jaipur",
-         imagePath: "assets/jaipurPic.png"
-     ),
-     HomePageTopDestinationModel(
-         id: 3,
-         destinationName: "Varanasi",
-         imagePath: "assets/varanasiPic.png"
-     ),
-     HomePageTopDestinationModel(
-         id: 4,
-         destinationName: "West Bengal",
-         imagePath: "assets/westbengalPic.png"
-     )
-     
-  ];
+  late List<DestinationDetailsModel> _listOfDestination;
+  bool _isLoading = false;
+  late PageController _pageController;
 
 
   @override
   void initState() {
     super.initState();
-    _selectedTopDestinationId = _listOfTopDestination.first.id!;
+    _selectedTopDestinationId = listOfTopDestination.first.id!;
+    _listOfDestination = listOfNagpurPlaces;
+    _pageController = PageController(viewportFraction: 0.7, initialPage: _index);
+
   }
 
   @override
@@ -74,9 +60,9 @@ class _HomePageState extends State<HomePage> {
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 physics: BouncingScrollPhysics(),
-                itemCount: _listOfTopDestination.length ,
+                itemCount: listOfTopDestination.length ,
                 itemBuilder: (context, index){
-                  final item = _listOfTopDestination[index];
+                  final item = listOfTopDestination[index];
                   // if(index == 0){
                   //   return SizedBox(width: 0,);
                   // }
@@ -85,9 +71,7 @@ class _HomePageState extends State<HomePage> {
                   // }
                   return GestureDetector(
                     onTap: (){
-                      setState((){
-                        _selectedTopDestinationId = item.id!;
-                      });
+                      onCityChosen(item.id!);
                     },
                     child: Container(
                       padding: EdgeInsets.all(4),
@@ -139,6 +123,7 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
             ),
+
             SizedBox(height: 12,),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 16),
@@ -174,52 +159,162 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            Container(
-              height: 400,
-              child: PageView.builder(
-                  itemCount: destinations.length,
-                  controller: PageController(viewportFraction: 0.7),
-                  onPageChanged: (int index) => setState(() => _index = index),
-                  itemBuilder: (context, i) {
-                    return Transform.scale(
-                      scale: i == _index ? 1.0 : 0.8,
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => DestinationScreen(
-                                    destination: destinations[i],
-                                  )));
-                        },
+            if(_isLoading)
+              Column(
+                children: [
+                  SizedBox(height: 16,),
+                  Center(
+                    child: CircularProgressIndicator(
+                      color: kOrangeColor,
+                    ),
+                  ),
+                ],
+              ),
+
+            if(!_isLoading)
+            CarouselSlider(
+              options: CarouselOptions(
+                  height: 430.0,
+                viewportFraction: 0.8,
+                // aspectRatio: 2.0,
+                initialPage: 2,
+                enlargeCenterPage: true,
+                onPageChanged: (int index, reason) => setState(() => _index = index),
+              ),
+              items: _listOfDestination.map((destination) {
+                return Builder(
+                  builder: (BuildContext context) {
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => DestinationScreen(
+                              destination: destination,
+                            )));
+                      },
+                      child: Container(
+                        margin: EdgeInsets.symmetric(horizontal: 12),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Container(
-                              height: 350,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(30),
-                                  image: DecorationImage(
-                                    fit: BoxFit.fill,
-                                    image: AssetImage(destinations[i].image),
-                                  ),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black.withOpacity(0.3),
-                                      spreadRadius: 2,
-                                      blurRadius: 2,
-                                      offset: Offset(2, 3),
-                                    )
-                                  ]),
+                            PhysicalModel(
+                              color: Colors.black,
+                              elevation: 0,
+                              borderRadius: BorderRadius.circular(30),
+                              child: Container(
+                                height: 350,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30),
+                                    image: DecorationImage(
+                                      fit: BoxFit.fill,
+                                      image: AssetImage("${destination.image}"),
+                                    ),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.3),
+                                        spreadRadius: 3,
+                                        blurRadius: 2,
+                                        offset: Offset(3, 4),
+                                      )
+                                    ]
+                                ),
+                              ),
                             ),
                           ],
                         ),
                       ),
                     );
-                  }),
-            )
+                  },
+                );
+              }).toList(),
+            ),
+
+            SizedBox(height: 50,)
+
+            // if(!_isLoading)
+            // Container(
+            //   height: 400,
+            //   child: PageView.builder(
+            //       itemCount: _listOfDestination.length,
+            //       controller: _pageController,
+            //       physics: BouncingScrollPhysics(),
+            //       onPageChanged: (int index) => setState(() => _index = index),
+            //       itemBuilder: (context, i) {
+            //         return Transform.scale(
+            //           scale: i == _index ? 1.0 : 0.8,
+            //           child: GestureDetector(
+            //             onTap: () {
+            //               Navigator.of(context).push(MaterialPageRoute(
+            //                   builder: (context) => DestinationScreen(
+            //                         destination: _listOfDestination[i],
+            //                       )));
+            //             },
+            //             child: Column(
+            //               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //               children: [
+            //                 Container(
+            //                   height: 350,
+            //                   decoration: BoxDecoration(
+            //                       borderRadius: BorderRadius.circular(30),
+            //                       image: DecorationImage(
+            //                         fit: BoxFit.fill,
+            //                         image: AssetImage("${_listOfDestination[i].image}"),
+            //                       ),
+            //                       boxShadow: [
+            //                         BoxShadow(
+            //                           color: Colors.black.withOpacity(0.3),
+            //                           spreadRadius: 2,
+            //                           blurRadius: 2,
+            //                           offset: Offset(2, 3),
+            //                         )
+            //                       ]),
+            //                 ),
+            //               ],
+            //             ),
+            //           ),
+            //         );
+            //       }),
+            // )
           ],
         )
 
     );
+  }
+
+  void onCityChosen(int itemId) async{
+    setState(() {
+      _isLoading = true;
+      _selectedTopDestinationId = itemId;
+    });
+
+      await Future.delayed(Duration(milliseconds: 700));
+
+    setState(() {
+      _listOfDestination = getList(itemId);
+      _index = 1;
+      _isLoading = false;
+
+    });
+
+  }
+
+  List<DestinationDetailsModel> getList(int itemId) {
+    switch (itemId) {
+      case PlaceId.nagpurId: {
+        return listOfNagpurPlaces;
+      }
+      case PlaceId.jaipurId: {
+        return listOfJaipurPlaces;
+      }
+      case PlaceId.varanasiId: {
+        return listOfVaranasiPlaces;
+      }
+      case PlaceId.westBengalId: {
+        return listOfWestBengalPlaces;
+      }
+      default: {
+        return listOfNagpurPlaces;
+      }
+    }
   }
 }
 

@@ -2,9 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:teleport_ar/Models/Destination.dart';
+import 'package:teleport_ar/Models/destination_details_model.dart';
 
 class DestinationScreen extends StatefulWidget {
-  final Destination destination;
+  final DestinationDetailsModel destination;
 
   const DestinationScreen({required this.destination});
   @override
@@ -29,7 +30,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                     ),
                     image: DecorationImage(
                       fit: BoxFit.fill,
-                      image: AssetImage(widget.destination.image),
+                      image: AssetImage("${widget.destination.image}"),
                     ),
                   ),
                 ),
@@ -91,7 +92,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                     height: 10,
                   ),
                   Text(
-                    widget.destination.name,
+                    "${widget.destination.title}",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 35,
@@ -101,7 +102,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                     height: 10,
                   ),
                   Text(
-                    widget.destination.description,
+                    "${widget.destination.descriptionOfPlace}",
                     style: TextStyle(
                       fontSize: 18,
                     ),

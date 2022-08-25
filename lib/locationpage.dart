@@ -2,6 +2,7 @@
 
 import 'dart:developer';
 
+import 'package:device_apps/device_apps.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -77,7 +78,11 @@ class _LocationPageState extends State<LocationPage> {
 
   void openArPortal() async{
     try {
-      final int result = await platform.invokeMethod('openArPortal');
+      // final int result = await platform.invokeMethod('openArPortal');
+      List<Application> apps = await DeviceApps.getInstalledApplications();
+      log("$apps");
+      DeviceApps.openApp('com.jacob.windmill');
+
     } on PlatformException catch (e) {
       log("Platform error while opening AR portal");
     }
