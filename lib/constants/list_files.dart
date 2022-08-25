@@ -97,8 +97,7 @@ final List<DestinationDetailsModel> listOfGujaratPlaces = [
   DestinationDetailsModel(
       id: 1,
       nameOfPlace: "Statue of Unity",
-      descriptionOfPlace: "
-It represents more than a colossal structure facing the Sardar Sarovar Dam on the river Narmada. It is an iconic symbol of the Iron Man, who played an important role during Indias freedom struggle and thereafter in the unification of the princely states. It reminds the world of the towering personality of Sardar Vallabhbhai Patel, the nucleus of Indias integration as a united country.",
+      descriptionOfPlace: "It represents more than a colossal structure facing the Sardar Sarovar Dam on the river Narmada. It is an iconic symbol of the Iron Man, who played an important role during Indias freedom struggle and thereafter in the unification of the princely states. It reminds the world of the towering personality of Sardar Vallabhbhai Patel, the nucleus of Indias integration as a united country.",
       image: 'assets/GujaratUnity.png',
       title: "Journey to Statue of Unity",
       subTitle: "Falana Timkana",
@@ -109,8 +108,7 @@ It represents more than a colossal structure facing the Sardar Sarovar Dam on th
   DestinationDetailsModel(
       id: 2,
       nameOfPlace: "Polo Forest",
-      descriptionOfPlace: "
-The Polo forest is surrounded by mountains where you can explore river, dam, ancient temples and many more places.",
+      descriptionOfPlace: "The Polo forest is surrounded by mountains where you can explore river, dam, ancient temples and many more places.",
       image: 'assets/GujaratPoloForest.png',
       title: "Journey to Polo Forest",
       subTitle: "Falana Timkana",
@@ -121,8 +119,7 @@ The Polo forest is surrounded by mountains where you can explore river, dam, anc
   DestinationDetailsModel(
       id: 3,
       nameOfPlace: "Modhera Sun Temple",
-      descriptionOfPlace: "
-The Modhera Sun Temple, located in Gujarat, is dedicated to the Sun-God, or 'Surya. ' It is an architectural achievement maintained by the Archaeological Survey of India (ASI). With its intricate carvings and the splendid rectangular step-well, Surya Kund, the structure is beyond grand.",
+      descriptionOfPlace: "The Modhera Sun Temple, located in Gujarat, is dedicated to the Sun-God, or 'Surya. ' It is an architectural achievement maintained by the Archaeological Survey of India (ASI). With its intricate carvings and the splendid rectangular step-well, Surya Kund, the structure is beyond grand.",
       image: 'assets/GujaratSunTemple.png',
       title: "Journey to Modhera Sun Temple",
       subTitle: "Falana Timkana",
@@ -133,8 +130,7 @@ The Modhera Sun Temple, located in Gujarat, is dedicated to the Sun-God, or 'Sur
   DestinationDetailsModel(
       id: 4,
       nameOfPlace: "Somnath Temple",
-      descriptionOfPlace: "
-The site of Somnath has been a pilgrimage site from ancient times on account of being a Triveni Sangam (the confluence of three rivers: Kapila, Hiran and Saraswati). Soma, the Moon god, is believed to have lost his lustre due to a curse, and he bathed in the Sarasvati River at this site to regain it",
+      descriptionOfPlace: "The site of Somnath has been a pilgrimage site from ancient times on account of being a Triveni Sangam (the confluence of three rivers: Kapila, Hiran and Saraswati). Soma, the Moon god, is believed to have lost his lustre due to a curse, and he bathed in the Sarasvati River at this site to regain it",
       image: 'assets/GujaratSomnath.png',
       title: "Journey to Polo Forest",
       subTitle: "Falana Timkana",
@@ -160,8 +156,7 @@ final List<DestinationDetailsModel> listOfMumbaiPlaces = [
   DestinationDetailsModel(
       id: 2,
       nameOfPlace: "Chhatrapati Shivaji Terminus",
-      descriptionOfPlace: "
-The Chhatrapati Shivaji Terminus, formerly known as Victoria Terminus Station, in Mumbai, is an outstanding example of Victorian Gothic Revival architecture in India, blended with themes deriving from Indian traditional architecture.",
+      descriptionOfPlace: "The Chhatrapati Shivaji Terminus, formerly known as Victoria Terminus Station, in Mumbai, is an outstanding example of Victorian Gothic Revival architecture in India, blended with themes deriving from Indian traditional architecture.",
       image: "assets/MumbaiTerminus.png",
       title: "Journey to Taj Mahal",
       subTitle: "Falana Timkana",
@@ -172,8 +167,7 @@ The Chhatrapati Shivaji Terminus, formerly known as Victoria Terminus Station, i
   DestinationDetailsModel(
       id: 2,
       nameOfPlace: "Elephanta Caves",
-      descriptionOfPlace: "
-The Elephanta Caves contain rock cut stone sculptures, mostly in high relief, that show syncretism of Hindu and Buddhist ideas and iconography.",
+      descriptionOfPlace: "The Elephanta Caves contain rock cut stone sculptures, mostly in high relief, that show syncretism of Hindu and Buddhist ideas and iconography.",
       image: "assets/MumbaiElephanta.png",
       title: "Journey to Elephanta Caves",
       subTitle: "Falana Timkana",
@@ -184,27 +178,27 @@ The Elephanta Caves contain rock cut stone sculptures, mostly in high relief, th
 ];
 
 // THis is the list of jaipur
-// final List<DestinationDetailsModel> listOfWestBengalPlaces = [
-//   DestinationDetailsModel(
-//       id: 1,
-//       nameOfPlace: "Taj Mahal",
-//       descriptionOfPlace: "Very Nice Place",
-//       image: "assets/nagpurPic.png",
-//       title: "Journey to Taj Mahal",
-//       subTitle: "Falana Timkana",
-//       isArAvailable: true,
-//       category: Category.placeCategory,
-//       state: "Nagpur"
-//   ),
-//   DestinationDetailsModel(
-//       id: 2,
-//       nameOfPlace: "Taj Mahal",
-//       descriptionOfPlace: "Very Nice Place",
-//       image: "assets/nagpurPic.png",
-//       title: "Journey to Taj Mahal",
-//       subTitle: "Falana Timkana",
-//       isArAvailable: true,
-//       category: Category.placeCategory,
-//       state: "Nagpur"
-//   ),
-// ];
+final List<DestinationDetailsModel> listOfWestBengalPlaces = [
+  DestinationDetailsModel(
+      id: 1,
+      nameOfPlace: "Taj Mahal",
+      descriptionOfPlace: "Very Nice Place",
+      image: "assets/nagpurPic.png",
+      title: "Journey to Taj Mahal",
+      subTitle: "Falana Timkana",
+      isArAvailable: true,
+      category: Category.placeCategory,
+      state: "Nagpur"
+  ),
+  DestinationDetailsModel(
+      id: 2,
+      nameOfPlace: "Taj Mahal",
+      descriptionOfPlace: "Very Nice Place",
+      image: "assets/nagpurPic.png",
+      title: "Journey to Taj Mahal",
+      subTitle: "Falana Timkana",
+      isArAvailable: true,
+      category: Category.placeCategory,
+      state: "Nagpur"
+  ),
+];
