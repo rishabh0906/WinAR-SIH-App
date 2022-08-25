@@ -26,7 +26,7 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
   final _pageController = PageController();
 
   TabController? tabController;
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
 
   @override
   void initState() {

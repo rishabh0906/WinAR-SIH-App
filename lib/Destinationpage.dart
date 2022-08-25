@@ -1,6 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'dart:developer';
+
+import 'package:device_apps/device_apps.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:teleport_ar/Models/Destination.dart';
 import 'package:teleport_ar/Models/destination_details_model.dart';
 
@@ -17,6 +21,30 @@ class _DestinationScreenState extends State<DestinationScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        floatingActionButton: Container(
+          margin: EdgeInsets.symmetric(horizontal: 30),
+          child: Row(
+            children: [
+              Expanded(
+                child: ElevatedButton(
+                  onPressed: () {
+                    openArPortal();
+                  },
+                  child: Text("View In AR", style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 1, fontSize: 18),),
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(vertical: 14),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12)
+                    )
+                  ),
+
+                ),
+              ),
+            ],
+          ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+
         body: ListView(
           children: [
             Stack(
@@ -115,4 +143,17 @@ class _DestinationScreenState extends State<DestinationScreen> {
       ),
     );
   }
+
+  void openArPortal() async{
+    try {
+      List<Application> apps = await DeviceApps.getInstalledApplications();
+      log("$apps");
+      DeviceApps.openApp('com.jacob.windmill');
+
+    } on PlatformException catch (e) {
+      log("Platform error while opening AR portal");
+    }
+  }
+
+
 }

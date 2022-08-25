@@ -42,7 +42,7 @@ final List<DestinationDetailsModel> listOfDelhiPlaces = [
     image: 'assets/DelhiIndiaGate.png',
     title: "Journey to India Gate",
     subTitle: "Pyre",
-    isArAvailable: true,
+    isArAvailable: false,
     category: Category.placeCategory,
     state: "Delhi"
   ),
@@ -53,7 +53,7 @@ final List<DestinationDetailsModel> listOfDelhiPlaces = [
       image: 'assets/DelhiSafdarjung.png',
       title: "Journey to Safdarjung Tomb",
       subTitle: "Falana Timkana",
-      isArAvailable: true,
+      isArAvailable: false,
       category: Category.placeCategory,
       state: "Delhi"
   ),
@@ -64,7 +64,7 @@ final List<DestinationDetailsModel> listOfDelhiPlaces = [
       image: 'assets/DelhiLotusTemple.png',
       title: "Journey to Lotus Temple",
       subTitle: "Falana Timkana",
-      isArAvailable: true,
+      isArAvailable: false,
       category: Category.placeCategory,
       state: "Delhi"
   ),
@@ -75,7 +75,7 @@ final List<DestinationDetailsModel> listOfDelhiPlaces = [
       image: 'assets/DelhiHumayu.png',
       title: "Journey to Humayu Tomb",
       subTitle: "Falana Timkana",
-      isArAvailable: true,
+      isArAvailable: false,
       category: Category.placeCategory,
       state: "Delhi"
   ),
@@ -86,7 +86,7 @@ final List<DestinationDetailsModel> listOfDelhiPlaces = [
       image: 'assets/DelhiSafdarjung.png',
       title: "Journey to Safdarjung Tomb",
       subTitle: "Falana Timkana",
-      isArAvailable: true,
+      isArAvailable: false,
       category: Category.placeCategory,
       state: "Delhi"
   ),
@@ -101,7 +101,7 @@ final List<DestinationDetailsModel> listOfGujaratPlaces = [
       image: 'assets/GujaratUnity.png',
       title: "Journey to Statue of Unity",
       subTitle: "Falana Timkana",
-      isArAvailable: true,
+      isArAvailable: false,
       category: Category.placeCategory,
       state: "Gujarat"
   ),
@@ -112,7 +112,7 @@ final List<DestinationDetailsModel> listOfGujaratPlaces = [
       image: 'assets/GujaratPoloForest.png',
       title: "Journey to Polo Forest",
       subTitle: "Falana Timkana",
-      isArAvailable: true,
+      isArAvailable: false,
       category: Category.placeCategory,
       state: "Gujarat"
   ),
@@ -123,7 +123,7 @@ final List<DestinationDetailsModel> listOfGujaratPlaces = [
       image: 'assets/GujaratSunTemple.png',
       title: "Journey to Modhera Sun Temple",
       subTitle: "Falana Timkana",
-      isArAvailable: true,
+      isArAvailable: false,
       category: Category.placeCategory,
       state: "Gujarat"
   ),
@@ -134,7 +134,7 @@ final List<DestinationDetailsModel> listOfGujaratPlaces = [
       image: 'assets/GujaratSomnath.png',
       title: "Journey to Polo Forest",
       subTitle: "Falana Timkana",
-      isArAvailable: true,
+      isArAvailable: false,
       category: Category.placeCategory,
       state: "Gujarat"
   ),
@@ -149,7 +149,7 @@ final List<DestinationDetailsModel> listOfMumbaiPlaces = [
       image: "assets/MumbaiGOI.png",
       title: "Journey to Gateway Of India",
       subTitle: "Falana Timkana",
-      isArAvailable: true,
+      isArAvailable: false,
       category: Category.placeCategory,
       state: "Mumbai"
   ),
@@ -160,7 +160,7 @@ final List<DestinationDetailsModel> listOfMumbaiPlaces = [
       image: "assets/MumbaiTerminus.png",
       title: "Journey to Taj Mahal",
       subTitle: "Falana Timkana",
-      isArAvailable: true,
+      isArAvailable: false,
       category: Category.placeCategory,
       state: "Mumbai"
   ),
@@ -171,7 +171,7 @@ final List<DestinationDetailsModel> listOfMumbaiPlaces = [
       image: "assets/MumbaiElephanta.png",
       title: "Journey to Elephanta Caves",
       subTitle: "Falana Timkana",
-      isArAvailable: true,
+      isArAvailable: false,
       category: Category.placeCategory,
       state: "Mumbai"
   ),
@@ -186,7 +186,7 @@ final List<DestinationDetailsModel> listOfWestBengalPlaces = [
       image: "assets/nagpurPic.png",
       title: "Journey to Taj Mahal",
       subTitle: "Falana Timkana",
-      isArAvailable: true,
+      isArAvailable: false,
       category: Category.placeCategory,
       state: "Nagpur"
   ),
@@ -197,7 +197,7 @@ final List<DestinationDetailsModel> listOfWestBengalPlaces = [
       image: "assets/nagpurPic.png",
       title: "Journey to Taj Mahal",
       subTitle: "Falana Timkana",
-      isArAvailable: true,
+      isArAvailable: false,
       category: Category.placeCategory,
       state: "Nagpur"
   ),

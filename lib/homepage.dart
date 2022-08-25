@@ -193,23 +193,36 @@ class _HomePageState extends State<HomePage> {
                               color: Colors.black,
                               elevation: 0,
                               borderRadius: BorderRadius.circular(30),
-                              child: Container(
-                                height: 350,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(30),
-                                    image: DecorationImage(
-                                      fit: BoxFit.fill,
-                                      image: AssetImage("${destination.image}"),
+                              child: Stack(
+                                children: [
+
+
+                                  Container(
+                                    height: 350,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(30),
+                                        image: DecorationImage(
+                                          fit: BoxFit.fill,
+                                          image: AssetImage("${destination.image}"),
+                                        ),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.black.withOpacity(0.3),
+                                            spreadRadius: 3,
+                                            blurRadius: 2,
+                                            offset: Offset(3, 4),
+                                          )
+                                        ],
                                     ),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black.withOpacity(0.3),
-                                        spreadRadius: 3,
-                                        blurRadius: 2,
-                                        offset: Offset(3, 4),
-                                      )
-                                    ]
-                                ),
+                                  ),
+                                  // Column(
+                                  //   crossAxisAlignment: CrossAxisAlignment.start,
+                                  //   children: [
+                                  //     Text("${destination.title}", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                                  //     Text("${destination.subTitle}", maxLines: 1,)
+                                  //   ],
+                                  // )
+                                ],
                               ),
                             ),
                           ],
