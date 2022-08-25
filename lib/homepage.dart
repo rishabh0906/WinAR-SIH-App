@@ -57,71 +57,64 @@ class _HomePageState extends State<HomePage> {
               margin: EdgeInsets.symmetric(vertical: 12),
               height: 110,
               // color: Colors.red,
-              child: ListView.separated(
-                scrollDirection: Axis.horizontal,
+              child: ListView(
                 physics: BouncingScrollPhysics(),
-                itemCount: listOfTopDestination.length ,
-                itemBuilder: (context, index){
-                  final item = listOfTopDestination[index];
-                  // if(index == 0){
-                  //   return SizedBox(width: 0,);
-                  // }
-                  // if(index == _itemLength + 1){
-                  //   return SizedBox(width: 0,);
-                  // }
-                  return GestureDetector(
-                    onTap: (){
-                      onCityChosen(item.id!);
-                    },
-                    child: Container(
-                      padding: EdgeInsets.all(4),
-
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16),
-                          border: item.id == _selectedTopDestinationId ? Border.all(color: kOrangeColor, width: 3) : null
-                      ),
+                scrollDirection: Axis.horizontal,
+                children: [
+                  SizedBox(width: 12,),
+                  ...List.generate(listOfTopDestination.length, (index) {
+                    final item = listOfTopDestination[index];
+                    return GestureDetector(
+                      onTap: (){
+                        onCityChosen(item.id!);
+                      },
                       child: Container(
-                        width: 80,
-                        decoration: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.circular(10),
-                          image: DecorationImage(
-                            image: AssetImage("${item.imagePath}"),
-                            fit: BoxFit.cover
-                          )
-                        ),
+                        margin: EdgeInsets.only(right: 12),
+                        padding: EdgeInsets.all(4),
 
-                        // alignment: Alignment.bottomLeft,
-                        // padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-                        child: Stack(
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12),
-                                gradient: LinearGradient(
-                                    begin: Alignment.topCenter,
-                                    end: Alignment.bottomCenter,
-                                    stops: const [0.7, 0.9],
-                                    colors: [Colors.white.withOpacity(0.1), Colors.black.withOpacity(0.5)]
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(16),
+                            border: item.id == _selectedTopDestinationId ? Border.all(color: kOrangeColor, width: 3) : null
+                        ),
+                        child: Container(
+                          width: 80,
+                          decoration: BoxDecoration(
+                              color: Colors.red,
+                              borderRadius: BorderRadius.circular(10),
+                              image: DecorationImage(
+                                  image: AssetImage("${item.imagePath}"),
+                                  fit: BoxFit.cover
+                              )
+                          ),
+
+                          // alignment: Alignment.bottomLeft,
+                          // padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                          child: Stack(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  gradient: LinearGradient(
+                                      begin: Alignment.topCenter,
+                                      end: Alignment.bottomCenter,
+                                      stops: const [0.7, 0.9],
+                                      colors: [Colors.white.withOpacity(0.1), Colors.black.withOpacity(0.5)]
+                                  ),
                                 ),
                               ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(bottom: 10, left: 6),
-                              alignment: Alignment.bottomLeft,
-                                child: Text("${item.destinationName}", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),)),
-                          ],
+                              Container(
+                                  margin: EdgeInsets.only(bottom: 10, left: 6),
+                                  alignment: Alignment.bottomLeft,
+                                  child: Text("${item.destinationName}", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),)),
+                            ],
+                          ),
+                          // child: Image.asset("${item.imagePath}", fit: BoxFit.fill,)
                         ),
-                        // child: Image.asset("${item.imagePath}", fit: BoxFit.fill,)
                       ),
-                    ),
-                  );
-
-                },
-                separatorBuilder: (BuildContext context, int index) {
-                  return SizedBox(width: 12,);
-                },
-              ),
+                    );
+                  }),
+                ],
+              )
             ),
 
             SizedBox(height: 12,),
