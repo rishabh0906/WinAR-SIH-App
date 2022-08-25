@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _selectedTopDestinationId = listOfTopDestination.first.id!;
-    _listOfDestination = listOfNagpurPlaces;
+    _listOfDestination = listOfDelhiPlaces;
     _pageController = PageController(viewportFraction: 0.7, initialPage: _index);
 
   }
@@ -292,20 +292,20 @@ class _HomePageState extends State<HomePage> {
 
   List<DestinationDetailsModel> getList(int itemId) {
     switch (itemId) {
-      case PlaceId.nagpurId: {
-        return listOfNagpurPlaces;
+      case PlaceId.delhiId: {
+        return listOfDelhiPlaces;
       }
-      case PlaceId.jaipurId: {
-        return listOfJaipurPlaces;
+      case PlaceId.gujaratId: {
+        return listOfGujaratPlaces;
       }
-      case PlaceId.varanasiId: {
-        return listOfVaranasiPlaces;
+      case PlaceId.mumbaiId: {
+        return listOfMumbaiPlaces;
       }
       case PlaceId.westBengalId: {
         return listOfWestBengalPlaces;
       }
       default: {
-        return listOfNagpurPlaces;
+        return listOfDelhiPlaces;
       }
     }
   }
