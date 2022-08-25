@@ -3,27 +3,27 @@ import 'package:teleport_ar/Models/home_page_top_destination_model.dart';
 import 'package:teleport_ar/constants/category.dart';
 
 class PlaceId{
-  static const int nagpurId = 1;
-  static const int jaipurId = 2;
-  static const int varanasiId = 3;
+  static const int delhiId = 1;
+  static const int gujaratId = 2;
+  static const int mumbaiId = 3;
   static const int westBengalId = 4;
 }
 
 // The list of places to show on top of home page
 final List<HomePageTopDestinationModel> listOfTopDestination = [
   HomePageTopDestinationModel(
-      id: PlaceId.nagpurId,
-      destinationName: "Nagpur",
+      id: PlaceId.delhiId,
+      destinationName: "Delhi",
       imagePath: "assets/nagpurPic.png"
   ),
   HomePageTopDestinationModel(
-      id: PlaceId.jaipurId,
-      destinationName: "Jaipur",
+      id: PlaceId.gujaratId,
+      destinationName: "Gujarat",
       imagePath: "assets/jaipurPic.png"
   ),
   HomePageTopDestinationModel(
-      id: PlaceId.varanasiId,
-      destinationName: "Varanasi",
+      id: PlaceId.mumbaiId,
+      destinationName: "Mumbai",
       imagePath: "assets/varanasiPic.png"
   ),
   HomePageTopDestinationModel(
