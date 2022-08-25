@@ -12,9 +12,8 @@ class MainActivity: FlutterActivity() {
     override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL).setMethodCallHandler {
-                call, result ->if (call.method.equals("openArPortal")) {
-            val intent = Intent(this, SecondActivity::class.java)
-            startActivity(intent)
+                call, result ->if (call.method.equals("openDetectionAcitvity")) {
+            startActivity(Intent(this, ArActivity::class.java))
         } else {
             result.notImplemented()
         }

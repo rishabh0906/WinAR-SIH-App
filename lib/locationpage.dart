@@ -47,7 +47,8 @@ class _LocationPageState extends State<LocationPage> {
                 color: Colors.white.withOpacity(0.8),
                   child: Text("Let's Get Started", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),),
                   onPressed: (){
-                    openArPortal();
+                    // openArPortal();
+                    openArDetection();
                   }),
             ),
           ),
@@ -78,7 +79,6 @@ class _LocationPageState extends State<LocationPage> {
 
   void openArPortal() async{
     try {
-      // final int result = await platform.invokeMethod('openArPortal');
       List<Application> apps = await DeviceApps.getInstalledApplications();
       log("$apps");
       DeviceApps.openApp('com.jacob.windmill');
@@ -86,5 +86,9 @@ class _LocationPageState extends State<LocationPage> {
     } on PlatformException catch (e) {
       log("Platform error while opening AR portal");
     }
+  }
+
+  void openArDetection() async{
+    final int result = await platform.invokeMethod('openDetectionAcitvity');
   }
 }

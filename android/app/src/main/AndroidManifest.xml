@@ -3,15 +3,20 @@
     package="com.example.teleport_ar">
 
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera.ar"
+        android:required="true" />
 
     <application
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:label="teleport_ar">
         <activity
-            android:name=".SecondActivity"
-            android:theme="@style/Theme.AppCompat.Light"
-            android:exported="false" />
+            android:name=".ArActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light" />
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
@@ -44,6 +49,9 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <meta-data
+            android:name="com.google.ar.core"
+            android:value="required" />
     </application>
 
 </manifest>

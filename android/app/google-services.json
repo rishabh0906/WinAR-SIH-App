@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "109252520065",
+    "project_id": "winar-32de4",
+    "storage_bucket": "winar-32de4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:109252520065:android:fb04344d77fd0aa3c6c580",
+        "android_client_info": {
+          "package_name": "com.example.teleport_ar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "109252520065-is13ogr97h793lbpug06thr8d8k7ae8o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIE9j8cV09yc4mvgUHMETiAvg2RT3Lskg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "109252520065-is13ogr97h793lbpug06thr8d8k7ae8o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
