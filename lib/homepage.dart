@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
             SizedBox(height: MediaQuery.of(context).padding.top,),
             Container(
                 margin: EdgeInsets.symmetric(horizontal: 16),
-                child: Text("Choose City", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),)),
+                child: Text("Choose Place", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),)),
             Container(
               margin: EdgeInsets.symmetric(vertical: 12),
               height: 110,
@@ -215,13 +215,19 @@ class _HomePageState extends State<HomePage> {
                                         ],
                                     ),
                                   ),
-                                  // Column(
-                                  //   crossAxisAlignment: CrossAxisAlignment.start,
-                                  //   children: [
-                                  //     Text("${destination.title}", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-                                  //     Text("${destination.subTitle}", maxLines: 1,)
-                                  //   ],
-                                  // )
+                                  Container(
+                                    height: 324,
+                                    margin: EdgeInsets.only(left: 88),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.end,
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Text("${destination.nameOfPlace}", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),),
+                                        SizedBox(height: 8,),
+                                        Text("${destination.subTitle}", maxLines: 1, style: TextStyle(color: Colors.white),)
+                                      ],
+                                    ),
+                                  )
                                 ],
                               ),
                             ),
@@ -311,7 +317,7 @@ class _HomePageState extends State<HomePage> {
       case PlaceId.gujaratId: {
         return listOfGujaratPlaces;
       }
-      case PlaceId.mumbaiId: {
+      case PlaceId.maharashraId: {
         return listOfMumbaiPlaces;
       }
       case PlaceId.westBengalId: {

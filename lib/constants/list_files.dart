@@ -5,7 +5,7 @@ import 'package:teleport_ar/constants/category.dart';
 class PlaceId{
   static const int delhiId = 1;
   static const int gujaratId = 2;
-  static const int mumbaiId = 3;
+  static const int maharashraId = 3;
   static const int westBengalId = 4;
 }
 
@@ -22,7 +22,7 @@ final List<HomePageTopDestinationModel> listOfTopDestination = [
       imagePath: "assets/jaipurPic.png"
   ),
   HomePageTopDestinationModel(
-      id: PlaceId.mumbaiId,
+      id: PlaceId.maharashraId,
       destinationName: "Mumbai",
       imagePath: "assets/varanasiPic.png"
   ),
